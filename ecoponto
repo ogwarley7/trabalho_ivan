@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ecopontos de Florianópolis</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Ecopontos de Florianópolis</h1>
+    <p>Encontre o ponto de coleta mais próximo da sua região</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Selecione sua região</h2>
+      <div>
+        <button onclick="mostrarEcopontos('norte')">Norte da Ilha</button>
+        <button onclick="mostrarEcopontos('sul')">Sul da Ilha</button>
+        <button onclick="mostrarEcopontos('centro')">Centro</button>
+      </div>
+    </section>
+
+    <section id="ecopontos">
+      <h2>Locais de Ecopontos</h2>
+      <div id="lista-ecopontos">
+        <p>Escolha uma região para ver os ecopontos.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Desenvolvido para uma cidade mais limpa e sustentável 🌱
+  </footer>
+
+  <script>
+    const ecopontos = {
+      norte: [
+        "Ecoponto Canasvieiras - Rua Desembargador Maurílio Coimbra, 50",
+        "Ecoponto Ingleses - Rua Intendente João Nunes Vieira, 1665",
+        "Ecoponto Vargem Grande - Estr. Cristóvão Machado de Campos, 2895"
+      ],
+      sul: [
+        "Ecoponto Rio Tavares - Serv. Manoel Luiz Duarte, 104",
+        "Ecoponto Campeche - Rua da Capela, 200",
+        "Ecoponto Pântano do Sul - Rod. Rozália Paulina Ferreira, 1000"
+      ],
+      centro: [
+        "Ecoponto Itacorubi - Rua Vitório V. da Silva, 70",
+        "Ecoponto Trindade - Rua Lauro Linhares, 2123",
+        "Ecoponto Estreito - Rua Gen. Eurico Gaspar Dutra, 301"
+      ]
+    };
+
+    function mostrarEcopontos(regiao) {
+      const container = document.getElementById('lista-ecopontos');
+      container.innerHTML = '';
+
+      ecopontos[regiao].forEach(ponto => {
+        const div = document.createElement('div');
+        div.className = 'card';
+        div.textContent = ponto;
+        container.appendChild(div);
+      });
+    }
+  </script>
+</body>
+</html>
